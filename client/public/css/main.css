@@ -799,4 +799,23 @@ p.capitalize:first-letter {
   }
 
 
+  .welcome{
+	text-align: center;
+	color: #74c9be;
+
+  }
+
+  .para{
+	text-align: center;
+    font-size: large;
+    color: white;
+  }
+  .home{
+	background-color: rgba(255, 255, 255, 0.2);
+    padding: 60px 10px;
+    width: 75%;
+    margin: 100px auto;
+	border-radius: 20px;
+  }
+
 
