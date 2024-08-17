@@ -1,12 +1,14 @@
+import {Link} from 'react-router-dom';
+
 export default function Header(){
     return (
         
     <div id="headerwrap">
-		<a href="" className="header main">CommunicateEasy</a>
-		<a href="" className="header">Profile</a>
-		<a href="" className="header">Register</a>
-		<a href="" className="header">Log In</a>
-		<a href="" className="header">Communicate Now</a>
+		<Link to="/" className="header main">CommunicateEasy</Link>
+		<Link to="/profile" className="header">Profile</Link>
+		<Link to="/register" className="header">Register</Link>
+		<Link to="login" className="header">Log In</Link>
+		<Link to="chat" className="header">Communicate Now</Link>
 	</div>
     )
 }
