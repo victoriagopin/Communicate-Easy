@@ -972,14 +972,13 @@ p.capitalize:first-letter {
   }
   
   .card-content {
-	padding: 35px;
+	margin-top: 20px;
   }
   
   .card-desc {
 	line-height: 1.6;
 	color: white;
 	font-size: 16px;
-	margin: 0;
 	font-weight: 400;
 	font-family: "DM Sans", sans-serif;
   }
@@ -1185,7 +1184,16 @@ p.capitalize:first-letter {
   .profile{
 	  margin-top: 60px;
   }
-  
+  .edit{
+	background: transparent;
+	color: #74c9be;
+    margin-top: 10px;
+    border: 1px solid;
+    border-radius: 6px;
+    width: 100px;
+    font-weight: 900;
+    margin: 0 auto;
+  }
   
 
 

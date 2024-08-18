@@ -5,6 +5,7 @@ import {Routes, Route} from 'react-router-dom'
 import Register from './components/register/Register'
 import Home from './components/home/Home'
 import Profile from './components/proifle/Profile'
+import EditProfile from './components/edit-profile/EditProfile'
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
     <Route path='/login' element={ <Login />}/>
     <Route path='/register' element={ <Register />}/>
     <Route path='/profile' element={<Profile />} />
+    <Route path='/edit' element={<EditProfile />} />
     </Routes> 
 
    </>

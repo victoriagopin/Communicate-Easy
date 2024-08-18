@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Profile() {
     return (
       <div className="container">
@@ -156,12 +158,14 @@ export default function Profile() {
                   </div>
                 </div>
               </div> */}
-              <div className="card-buttons">
+            
+            <button className="edit"><Link to="/edit">Edit</Link></button>
+            </div>
+            <div className="card-buttons">
                 <button data-section="#about" className="is-active">
                   Click to send a message!
                 </button>
               </div>
-            </div>
           </div>
         </div>
       </div>

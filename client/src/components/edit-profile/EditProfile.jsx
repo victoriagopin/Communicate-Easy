@@ -26,13 +26,7 @@ export default function EditProfile(){
                   <label>About You</label>
                 </div>
 
-                <div className="group">      
-                  <input type="password" required />
-                  <span className="highlight"></span>
-                  <span className="bar"></span>
-                  <label>About You</label>
-                </div>
-                <p className="mt"><button type="button" className="btn btn-cta btn-lg">Edit</button></p>
+                <p className="mt"><button type="button" className="btn btn-cta btn-lg">Save</button></p>
               </form>
         </div>
 </div>
