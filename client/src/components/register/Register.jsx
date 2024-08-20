@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "../../hooks/useForm";
+import { post } from "../../api/requester";
 
 const initialValues = {
 	email: '',
@@ -15,21 +16,19 @@ export default function Register(){
 	const submitHandler = async (e) => {
 		e.preventDefault();
 
-		try {
-			const res = await axios.post('http://localhost:5001/register',{
-				email: values.email,
-				password : values.password
-			});
+    try{
+      const res = await post('register', values);
 
-      if(res.data == 'Exists'){
-				console.log('Already exists');
-			} else if (res.data == 'notExist'){
-				navigate('/');
-			}
-		} catch (error) {
-			console.log(error.message);
-		}
+      if(res){
+        navigate('/');
+      } else {
+        console.log('Email already exists');
+      }
+    } catch (error){
+      console.log(error.message);
+    }
 	}
+
     return (
         <div className="container">
 		

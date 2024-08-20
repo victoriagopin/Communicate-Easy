@@ -27,11 +27,11 @@ app.post('/login', async(req, res) => {
 
     try {
         const exists = await User.findOne({email : email});
-
+        console.log(exists);
         if(exists){
-            res.json('Exists');
+            res.json(exists);
         } else{
-            res.json('notExist');
+            res.json(exists);
         }
     } catch (error) {
         console.log(error.message);
@@ -50,10 +50,11 @@ app.post('/register', async(req, res) => {
         const exists = await User.findOne({email : email});
 
         if(exists){
-            res.json('Exists');
+            res.json(null);
         } else{
-            res.json('notExist');
-            await User.insertMany([data])
+            const create = await User.insertMany([data]);
+            console.log(create);
+            res.json(data);
         }
     } catch (error) {
         console.log(error.message);
