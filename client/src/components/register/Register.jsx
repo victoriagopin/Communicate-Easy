@@ -1,4 +1,3 @@
-import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "../../hooks/useForm";
@@ -22,7 +21,7 @@ export default function Register(){
 				password : values.password
 			});
 
-      if(res.data == 'exist'){
+      if(res.data == 'Exists'){
 				console.log('Already exists');
 			} else if (res.data == 'notExist'){
 				navigate('/');
