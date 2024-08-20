@@ -1,4 +1,3 @@
-import axios from 'axios'
 import { useNavigate } from "react-router-dom";
 import { useForm } from "../../hooks/useForm";
 import { post } from '../../api/requester';
@@ -34,6 +33,7 @@ export default function Login(){
 				<div className="col-lg-8 col-lg-offset-2 mt">
 					<form action="POST" onSubmit={submitHandler}>
 						<h2 className="heading">Log In</h2>
+						{hasError && <p>Incorrect email or password!</p>}
 						<div className="group">      
 						  <input type="text" name="email" value={values.email} onChange={changeValues}/>
 						  <span className="highlight"></span>
