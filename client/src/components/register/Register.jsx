@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useForm } from "../../hooks/useForm";
 
 const initialValues = {
 	email: '',
@@ -9,15 +10,8 @@ const initialValues = {
 }
 
 export default function Register(){
-  const [values, setValues] = useState(initialValues);
+  const {values, changeValues} = useForm(initialValues);
   const navigate = useNavigate();
-
-	const changeValues = (e) => {
-		setValues(oldValues => ({
-			...oldValues,
-			[e.target.name] : e.target.value
-		}))
-	}
 
 	const submitHandler = async (e) => {
 		e.preventDefault();
