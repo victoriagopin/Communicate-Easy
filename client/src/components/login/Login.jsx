@@ -1,7 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import { useForm } from "../../hooks/useForm";
 import { post } from '../../api/requester';
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { UserContext } from "../../contexts/UserContext";
 
 const initialValues = {
 	email: '',
@@ -9,6 +10,7 @@ const initialValues = {
 }
 
 export default function Login(){
+	const {setUser} = useContext(UserContext);
 	const {values, changeValues} = useForm(initialValues);
 	const [hasError, setHasError] = useState(false);
 	const navigate = useNavigate();
@@ -16,16 +18,11 @@ export default function Login(){
 	const submitHandler = async (e) => {
 		e.preventDefault();
 
-		if(!values.email || values.password.length < 6){
-			setHasError(true);
-			setTimeout(() => setHasError(false), 3000);
-			return;
-		}
-
 		try{
 			const res = await post('login', values);
 		
 			if(res){
+			setUser(res);
 			navigate('/');
 			} else {
 				setHasError(true);

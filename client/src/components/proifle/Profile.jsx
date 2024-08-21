@@ -1,6 +1,13 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import { useGetProfile } from "../../hooks/useGetProfile";
+import { useEffect } from "react";
 
 export default function Profile() {
+    const {id} = useParams();
+    console.log(id);
+    const {profile} = useGetProfile(id);
+
+    console.log(profile);
     return (
       <div className="container">
         <div className="profile">
