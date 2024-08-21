@@ -1,18 +1,32 @@
+import { useContext } from "react";
+import { post } from "../../api/requester";
 import { useForm } from "../../hooks/useForm"
+import { UserContext } from "../../contexts/UserContext";
+import { useNavigate } from "react-router-dom";
 
 const initialValues = {
     fullName: '',
     occupation: '',
     age: '',
-    about: ''
+    about: '',
 }
 
 export default function CreateProfile(){
+    const {user} = useContext(UserContext);
     const {values, changeValues} = useForm(initialValues);
+    const navigate = useNavigate();
 
-    const submitHandler = () => {
+    const submitHandler = async (e) => {
         e.preventDefault();
-    }
+
+        try{
+            const res = await post('create-profile', values, {'x-user-id' : user._id});
+            console.log(res);
+            navigate(`/profile/${res._id}`);
+        } catch (error){
+            console.log(error.message);
+        }
+    } 
 
     return (
         <div className="container">
