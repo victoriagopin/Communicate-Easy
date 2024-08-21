@@ -7,12 +7,13 @@ import Home from './components/home/Home'
 import Profile from './components/proifle/Profile'
 import EditProfile from './components/edit-profile/EditProfile'
 import CreateProfile from './components/create-profile/CreateProfile'
+import { UserProvider } from './contexts/UserContext'
 
 function App() {
 
 
   return (
-    <>
+   <UserProvider>
    <Header />
     
    <Routes>
@@ -24,7 +25,7 @@ function App() {
     <Route path='/create-profile' element={<CreateProfile />} />
     </Routes> 
 
-   </>
+    </UserProvider>
    
   )
 }

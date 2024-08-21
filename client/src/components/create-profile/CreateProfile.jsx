@@ -11,7 +11,7 @@ export default function CreateProfile(){
     const {values, changeValues} = useForm(initialValues);
 
     const submitHandler = () => {
-
+        e.preventDefault();
     }
 
     return (
