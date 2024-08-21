@@ -6,6 +6,7 @@ import Register from './components/register/Register'
 import Home from './components/home/Home'
 import Profile from './components/proifle/Profile'
 import EditProfile from './components/edit-profile/EditProfile'
+import CreateProfile from './components/create-profile/CreateProfile'
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
     <Route path='/register' element={ <Register />}/>
     <Route path='/profile' element={<Profile />} />
     <Route path='/edit' element={<EditProfile />} />
+    <Route path='/create-profile' element={<CreateProfile />} />
     </Routes> 
 
    </>

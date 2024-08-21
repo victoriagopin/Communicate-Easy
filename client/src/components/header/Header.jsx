@@ -8,6 +8,7 @@ export default function Header(){
 		<Link to="/profile" className="header">Profile</Link>
 		<Link to="/register" className="header">Register</Link>
 		<Link to="login" className="header">Log In</Link>
+		<Link to="/create-profile" className="header">Create Profile</Link>
 		<Link to="chat" className="header">Communicate Now</Link>
 	</div>
     )

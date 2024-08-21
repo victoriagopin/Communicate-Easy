@@ -1,4 +1,3 @@
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "../../hooks/useForm";
 import { post } from "../../api/requester";
