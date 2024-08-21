@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useForm } from "../../hooks/useForm";
 import { post } from '../../api/requester';
+import { useState } from "react";
 
 const initialValues = {
 	email: '',
@@ -9,10 +10,17 @@ const initialValues = {
 
 export default function Login(){
 	const {values, changeValues} = useForm(initialValues);
+	const [hasError, setHasError] = useState(false);
 	const navigate = useNavigate();
 
 	const submitHandler = async (e) => {
 		e.preventDefault();
+
+		if(!values.email || values.password.length < 6){
+			setHasError(true);
+			setTimeout(() => setHasError(false), 3000);
+			return;
+		}
 
 		try{
 			const res = await post('login', values);
@@ -20,7 +28,9 @@ export default function Login(){
 			if(res){
 			navigate('/');
 			} else {
-			console.log('You do not have an account yet!');
+				setHasError(true);
+				setTimeout(() => setHasError(false), 3000);
+				return;
 			}
 		} catch (error){
 			console.log(error.message);
@@ -33,7 +43,7 @@ export default function Login(){
 				<div className="col-lg-8 col-lg-offset-2 mt">
 					<form action="POST" onSubmit={submitHandler}>
 						<h2 className="heading">Log In</h2>
-						{hasError && <p>Incorrect email or password!</p>}
+						{hasError && <p className="error">Incorrect email or password!</p>}
 						<div className="group">      
 						  <input type="text" name="email" value={values.email} onChange={changeValues}/>
 						  <span className="highlight"></span>
