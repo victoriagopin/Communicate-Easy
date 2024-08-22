@@ -5,7 +5,7 @@ import { UserContext } from "../../contexts/UserContext";
 import { useNavigate } from "react-router-dom";
 
 export default function CreateProfile(){
-    const {user, setProfile} = useContext(UserContext);
+    const {user, setProfile, setHasProfile} = useContext(UserContext);
 
     const initialValues = user ? {
       fullName: '',
@@ -29,6 +29,7 @@ export default function CreateProfile(){
         try{
             const res = await post('create-profile', values);
             setProfile(res);
+            setHasProfile(true);
             navigate(`/success`);
         } catch (error){
             console.log(error.message);
