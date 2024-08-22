@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import { UserContext } from '../../contexts/UserContext';
 
 export default function Header(){
-	const {user} = useContext(UserContext);
+	const {user, hasProfile} = useContext(UserContext);
     return (
         
     <div id="headerwrap">
@@ -11,8 +11,11 @@ export default function Header(){
 		{user ? (
 			<>
 			    <Link className="header">Log Out</Link>
-				<Link to="/create-profile" className="header">Create Profile</Link>
-				<Link to="/profile" className="header">Profile</Link>
+				{hasProfile ? 
+					<Link to="/profile" className="header">Profile</Link>
+					: 	
+					<Link to="/create-profile" className="header">Create Profile</Link>}
+				
 			</>
 			) : (
 			<>
