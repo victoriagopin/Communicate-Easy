@@ -4,15 +4,22 @@ import { useForm } from "../../hooks/useForm"
 import { UserContext } from "../../contexts/UserContext";
 import { useNavigate } from "react-router-dom";
 
-const initialValues = {
-    fullName: '',
-    occupation: '',
-    age: '',
-    about: '',
-}
-
 export default function CreateProfile(){
-    const {user} = useContext(UserContext);
+    const {user, setProfile} = useContext(UserContext);
+
+    const initialValues = user ? {
+      fullName: '',
+      occupation: '',
+      age: '',
+      about: '',
+      owner: user._id
+  } : {
+      fullName: '',
+      occupation: '',
+      age: '',
+      about: '',
+      owner: ''
+  };
     const {values, changeValues} = useForm(initialValues);
     const navigate = useNavigate();
 
@@ -20,9 +27,9 @@ export default function CreateProfile(){
         e.preventDefault();
 
         try{
-            const res = await post('create-profile', values, {'x-user-id' : user._id});
-            console.log(res);
-            navigate(`/profile/${res._id}`);
+            const res = await post('create-profile', values);
+            setProfile(res);
+            navigate(`/success`);
         } catch (error){
             console.log(error.message);
         }
