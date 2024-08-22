@@ -8,6 +8,7 @@ import Profile from './components/proifle/Profile'
 import EditProfile from './components/edit-profile/EditProfile'
 import CreateProfile from './components/create-profile/CreateProfile'
 import { UserProvider } from './contexts/UserContext'
+import SuccessfullyCreated from './components/successfully-created/SuccessfullyCreated'
 
 function App() {
 
@@ -20,8 +21,9 @@ function App() {
     <Route path='/' element={<Home />} />
     <Route path='/login' element={ <Login />}/>
     <Route path='/register' element={ <Register />}/>
-    <Route path='/profile/:id' element={<Profile />} />
+    <Route path='/profile' element={<Profile />} />
     <Route path='/edit' element={<EditProfile />} />
+    <Route path='/success' element={<SuccessfullyCreated />} />
     <Route path='/create-profile' element={<CreateProfile />} />
     </Routes> 
 

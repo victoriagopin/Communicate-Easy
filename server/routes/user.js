@@ -8,7 +8,7 @@ userRouter.post('/login', async(req, res) => {
 
     try {
         const exists = await User.findOne({email : email});
- 
+
         if(exists){
             res.json(exists);
         } else{
@@ -34,8 +34,7 @@ userRouter.post('/register', async(req, res) => {
             res.json(null);
         } else{
             const create = await User.insertMany([data]);
-            console.log(create);
-            res.json(data);
+            res.json(create[0]);
         }
     } catch (error) {
         console.log(error.message);

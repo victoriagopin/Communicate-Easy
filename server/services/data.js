@@ -4,13 +4,13 @@ async function getById(id){
     return Profile.findById(id).lean();
 }
 
-async function createProfile(data, ownerId){
+async function createProfile(data){
     const profile = new Profile({
         fullName: data.fullName,
         occupation: data.occupation,
         age: data.age,
         about: data.about,
-        owner: ownerId
+        owner: data.owner
     });
 
     await profile.save();

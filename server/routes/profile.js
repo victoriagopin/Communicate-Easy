@@ -1,23 +1,26 @@
 const { Router } = require('express');
 const { createProfile, getById} = require('../services/data');
+const {  Profile } = require('../models/Profile');
 
 const profileRouter = Router();
 
-profileRouter.get('/profile', async (req, res) => {
-    const profileId = req.headers['x-profile-id'];
-    const profile = await getById(profileId);
+profileRouter.get('/profile',async(req, res) => {
+    const {owner} = req.query;
+    const profile = await Profile.findOne({owner : owner});
+  
+    if(!profile){ 
+        return res.status(404);
+    }
 
-    res.json(profile);
+    res.json(profile);    
 })
 
 profileRouter.post('/create-profile', async (req, res) => {
-    const ownerId = req.headers['x-user-id'];
-    console.log(ownerId);
-    const result = await createProfile(req.body, ownerId);
+    const result = await createProfile(req.body);
 
     res.json(result);
 })
 
 module.exports = {
-    profileRouter
+    profileRouter 
 }
