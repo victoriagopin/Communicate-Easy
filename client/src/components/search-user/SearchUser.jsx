@@ -13,6 +13,8 @@ export default function SearchUser(){
             const res = await get(`search?fullName=${encodeURIComponent(values.search)}`);
             if(!res){
                 navigate('/not-found');
+            } else {
+                navigate('/chat');
             }
         } catch (error) {
             console.log(error.message);

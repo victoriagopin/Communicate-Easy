@@ -10,7 +10,13 @@ export default function Chat(){
             </ul>
 
             <form className={styles["chat-window"]}>
-	            <input className={styles["chat-window-message"]} name="chat-window-message" type="text" autocomplete="off" autofocus placeholder='Message...'/>
+	            <input 
+                    className={styles["chat-window-message"]} 
+                    name="chat-window-message" 
+                    type="text" 
+                    autoComplete="off" 
+                    autoFocus 
+                    placeholder='Message...'/>
             </form>
         </>
     )
