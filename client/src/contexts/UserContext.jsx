@@ -9,7 +9,7 @@ export const UserProvider = ({children}) => {
     const [profile, setProfile] = useState({});
 
     useEffect(() => {
-        const getProfile = async () => {
+        const getProfile = async () => { 
            if(user){
                 const profile =  await get(`profile?owner=${user?._id}`);
 

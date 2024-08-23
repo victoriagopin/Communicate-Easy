@@ -4,13 +4,15 @@ const baseURL = 'http://localhost:5001';
 
 export async function requester(method, url, data){
     const options = {
-        method,
+        method, 
         headers: {
             'Content-type': 'application/json',
         },
         url: `${baseURL}/${url}`,
         data,
     }
+
+    console.log(options);
 
     try{
         const res = await axios(options); 
