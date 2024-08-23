@@ -9,6 +9,7 @@ import EditProfile from './components/edit-profile/EditProfile'
 import CreateProfile from './components/create-profile/CreateProfile'
 import { UserProvider } from './contexts/UserContext'
 import SuccessfullyCreated from './components/successfully-created/SuccessfullyCreated'
+import SearchUser from './components/search-user/SearchUser'
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
     <Route path='/edit' element={<EditProfile />} />
     <Route path='/success' element={<SuccessfullyCreated />} />
     <Route path='/create-profile' element={<CreateProfile />} />
+    <Route path='/communicate-now' element={<SearchUser />} />
     </Routes> 
 
     </UserProvider>

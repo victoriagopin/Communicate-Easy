@@ -23,7 +23,7 @@ export default function Header(){
 				<Link to="login" className="header">Log In</Link>
 			</>)
 		}
-		<Link to="chat" className="header">Communicate Now</Link>
+		<Link to="/communicate-now" className="header">Communicate Now</Link>
 	</div>
     )
 }
