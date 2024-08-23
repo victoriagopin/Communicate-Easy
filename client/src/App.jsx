@@ -11,6 +11,7 @@ import { UserProvider } from './contexts/UserContext'
 import SuccessfullyCreated from './components/successfully-created/SuccessfullyCreated'
 import SearchUser from './components/search-user/SearchUser'
 import NotFoundUser from './components/not-found-user/NotFoundUser'
+import Chat from './components/chat/Chat'
 
 function App() {
 
@@ -29,6 +30,7 @@ function App() {
     <Route path='/create-profile' element={<CreateProfile />} />
     <Route path='/communicate-now' element={<SearchUser />} />
     <Route path='/not-found' element={<NotFoundUser />} />
+    <Route path='/chat' element={<Chat />} />
     </Routes> 
 
     </UserProvider>
