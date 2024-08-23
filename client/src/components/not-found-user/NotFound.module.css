@@ -1,0 +1,34 @@
+
+.all-div {
+    max-width: 450px;
+    margin: 0 auto;
+    font-size: xx-large;
+    color: #74c9be;
+  }
+  
+  .big-emoticon {
+    font-size: 75px;
+    color: #74c9be;
+    transform: rotate(45deg);
+  }
+  
+.heading {
+    padding-top: 30px;
+  }
+  
+  .content-description {
+    padding-bottom: 30px;
+    font-size: xx-large;
+  }
+  
+  .further-explanation {
+    padding-top: 15px;
+    font-size: smaller;
+    color: #74c9be;
+    font-size: large;
+  }
+
+  .redirect{
+    text-decoration: underline;
+    font-weight: 900;
+  }

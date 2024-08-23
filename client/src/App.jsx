@@ -10,6 +10,7 @@ import CreateProfile from './components/create-profile/CreateProfile'
 import { UserProvider } from './contexts/UserContext'
 import SuccessfullyCreated from './components/successfully-created/SuccessfullyCreated'
 import SearchUser from './components/search-user/SearchUser'
+import NotFoundUser from './components/not-found-user/NotFoundUser'
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
     <Route path='/success' element={<SuccessfullyCreated />} />
     <Route path='/create-profile' element={<CreateProfile />} />
     <Route path='/communicate-now' element={<SearchUser />} />
+    <Route path='/not-found' element={<NotFoundUser />} />
     </Routes> 
 
     </UserProvider>
