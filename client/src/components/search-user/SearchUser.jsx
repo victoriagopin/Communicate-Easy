@@ -14,7 +14,7 @@ export default function SearchUser(){
             if(!res){
                 navigate('/not-found');
             } else {
-                navigate('/chat');
+                navigate(`/chat/${res.owner}`);
             }
         } catch (error) {
             console.log(error.message);

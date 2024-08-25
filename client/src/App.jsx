@@ -30,7 +30,7 @@ function App() {
     <Route path='/create-profile' element={<CreateProfile />} />
     <Route path='/communicate-now' element={<SearchUser />} />
     <Route path='/not-found' element={<NotFoundUser />} />
-    <Route path='/chat' element={<Chat />} />
+    <Route path='/chat/:id' element={<Chat />} />
     </Routes> 
 
     </UserProvider>

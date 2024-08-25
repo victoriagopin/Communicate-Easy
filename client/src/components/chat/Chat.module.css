@@ -95,14 +95,25 @@
   }
   
   .chat-window-message {
-    width: 100%;
+    width: 70%;
     height: 48px;
-    font: 32px/48px "Noto Sans", sans-serif;
+    font: 32px / 48px "Noto Sans", sans-serif;
     background: none;
+    float: left;
     color: #0ad5c1;
     border: 0;
     border-bottom: 2px solid #0ad5c1;
+    display: inline;
     outline: none;
+  }
+  .send{
+    float: left;
+    margin-top: 24px;
+    width: 100px;
+    margin-left: 10px;
+    background: transparent;
+    color: turquoise;
+    border: 1px solid;
   }
   
   /* Small screens */
@@ -117,6 +128,8 @@
       width: 90%;
     }
   }
+
+
   /* Medium and large screens */
   @media all and (min-width: 768px) {
     .chat-thread {
