@@ -23,7 +23,10 @@ export default function Chat(){
         e.preventDefault();
         const sent = await post(`chat`, values);
         setChat(sent);
+        changeValues({ target: { name: 'content', value: '' } });
+
     }
+
 
     return(
         <>

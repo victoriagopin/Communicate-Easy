@@ -134,7 +134,7 @@
   @media all and (min-width: 768px) {
     .chat-thread {
       width: 50%;
-      height: 320px;
+      height: 70vh;
     }
   
     .chat-window {
