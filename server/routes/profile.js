@@ -1,6 +1,7 @@
 const { Router } = require('express');
-const { createProfile, getById} = require('../services/data');
+const { createProfile, getById, updateProfile} = require('../services/data');
 const {  Profile } = require('../models/Profile');
+
 
 const profileRouter = Router();
 
@@ -20,6 +21,20 @@ profileRouter.post('/create-profile', async (req, res) => {
 
     res.json(result);
 });
+
+profileRouter.post('/edit', async (req, res) => {
+
+    try{
+       const updatedProfile = await updateProfile(req.body._id, req.body);
+       res.json(updatedProfile);
+
+    } catch (err){
+        console.log(err.message);
+
+        return res.status(404);
+    }
+    
+})
 
 profileRouter.get('/search', async (req, res) => {
     const {fullName} = req.query;
