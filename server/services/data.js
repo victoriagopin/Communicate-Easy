@@ -17,7 +17,26 @@ async function createProfile(data){
     return profile;
 }
 
+async function updateProfile(profileId, profileData){
+    const profile = await Profile.findById(profileId);
+
+    if(!profile){
+        console.log('No profile found');
+    }
+
+    profile.fullName = profileData.fullName;
+    profile.occupation = profileData.occupation;
+    profile.age = profileData.age;
+    profile.about = profileData.about;
+
+    await profile.save();
+
+    return profile;
+}
+
+
 module.exports = {
     getById,
-    createProfile
+    createProfile,
+    updateProfile
 }
