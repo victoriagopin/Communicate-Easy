@@ -6,7 +6,9 @@ const chatRouter = Router();
 chatRouter.get('/chat' ,async (req, res) => {
     const participants = req.headers['x-participants']?.split(',');
      
-    let chat = await Chat.findOne({participants:  participants});
+    let chat = await Chat.findOne({
+        participants: { $all : participants}
+    });
 
     res.json(chat);
 });
@@ -14,7 +16,9 @@ chatRouter.get('/chat' ,async (req, res) => {
 chatRouter.post('/chat', async (req, res) => {
     const { participants, sender, content } = req.body;
     
-    let chat = await Chat.findOne({participants:  participants});
+    let chat = await Chat.findOne({
+        participants:  { $all : participants}
+    });
 
     if(!chat){
         console.log('no chat');
