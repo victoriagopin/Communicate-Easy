@@ -25,7 +25,7 @@ function App() {
     <Route path='/login' element={ <Login />}/>
     <Route path='/register' element={ <Register />}/>
     <Route path='/profile' element={<Profile />} />
-    <Route path='/edit' element={<EditProfile />} />
+    <Route path='/edit/:id' element={<EditProfile />} />
     <Route path='/success' element={<SuccessfullyCreated />} />
     <Route path='/create-profile' element={<CreateProfile />} />
     <Route path='/communicate-now' element={<SearchUser />} />

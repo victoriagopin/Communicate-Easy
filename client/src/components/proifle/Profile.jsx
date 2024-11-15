@@ -1,9 +1,11 @@
 import { Link, useParams} from "react-router-dom";
 import { useContext } from "react";
 import { UserContext } from "../../contexts/UserContext";
+import { useGetProfile } from "../../hooks/useGetProfile";
 
 export default function Profile() {
-  const {profile} = useContext(UserContext);
+  const {user} = useContext(UserContext);
+  const {profile} = useGetProfile(user._id);
 
     return (
       <div className="container">
@@ -35,7 +37,7 @@ export default function Profile() {
                   </p>
                 </div>
               </div>
-            <button className="edit"><Link to="/edit">Edit</Link></button>
+            <button className="edit"><Link to={`/edit/${user._id}`}>Edit</Link></button>
             </div>
             <div className="card-buttons">
                 <button data-section="#about" className="is-active">

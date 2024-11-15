@@ -13,11 +13,8 @@ export async function requester(method, url, data, headers = {}){
         data,
     }
 
-    console.log(options);
-
     try{
         const res = await axios(options); 
-        console.log(res);
     
         if(res.status == 200){
             return res.data;

@@ -23,6 +23,7 @@ export function useGetProfile(id){
     }, [id]);
 
     return {
-        profile
+        profile,
+        setProfile
     }
 }
