@@ -11,7 +11,7 @@ export function useGetProfile(id){
         const getProfile = async () => {
             if(user){
             try {
-                const result = await get(`profile?owner=${user?._id}`);
+                const result = await get(`profile?owner=${id}`);
 
                 setProfile(result);
             } catch (error) {

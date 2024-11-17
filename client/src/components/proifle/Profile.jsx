@@ -1,11 +1,17 @@
-import { Link, useParams} from "react-router-dom";
+import { useNavigate, useParams} from "react-router-dom";
 import { useContext } from "react";
 import { UserContext } from "../../contexts/UserContext";
 import { useGetProfile } from "../../hooks/useGetProfile";
 
 export default function Profile() {
+  const {ownerId} = useParams();
   const {user} = useContext(UserContext);
-  const {profile} = useGetProfile(user._id);
+  const {profile} = useGetProfile(ownerId);
+  const navigate = useNavigate();
+
+  const onChat = () => {
+    navigate(`/chat/${ownerId}`)
+  }
 
     return (
       <div className="container">
@@ -37,12 +43,18 @@ export default function Profile() {
                   </p>
                 </div>
               </div>
-            <button className="edit"><Link to={`/edit/${user._id}`}>Edit</Link></button>
+            {/* <button className="edit"><Link to={`/edit/${user._id}`}>Edit</Link></button> */}
             </div>
             <div className="card-buttons">
-                <button data-section="#about" className="is-active">
-                  Click to send a message!
-                </button>
+              {user._id == ownerId ?   
+              <button data-section="#about" className="is-active">
+                  Edit
+                </button> :
+                 <button data-section="#about" className="is-active" onClick={onChat}>
+                 Click to send a message!
+               </button>
+                }
+               
               </div>
           </div>
         </div>

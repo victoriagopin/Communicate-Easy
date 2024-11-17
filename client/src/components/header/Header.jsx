@@ -12,7 +12,7 @@ export default function Header(){
 			<>
 			    <Link className="header">Log Out</Link>
 				{hasProfile ? 
-					<Link to="/profile" className="header">Profile</Link>
+					<Link to={`/profile/${user._id}`} className="header">Profile</Link>
 					: 	
 					<Link to="/create-profile" className="header">Create Profile</Link>}
 				
