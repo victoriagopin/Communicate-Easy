@@ -47,4 +47,14 @@ chatRouter.post('/chat', async (req, res) => {
     res.json(chat);
 })
 
+
+chatRouter.get('/my-chats' ,async (req, res) => {
+    const user = req.get('x-userId');
+     
+    let chats = await Chat.find({
+        participants: { $in: [user] } 
+    });
+
+    res.json(chats);
+});
 module.exports = {chatRouter} 
