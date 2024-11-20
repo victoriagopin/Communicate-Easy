@@ -2,12 +2,12 @@ import { useContext } from 'react';
 import styles from './MyChat.module.css';
 import { UserContext } from '../../contexts/UserContext';
 import { useGetChats } from '../../hooks/useGetChats';
+import { timeConverter } from '../../helpers/convertTime';
 
 export default function MyChats(){
     const {user} = useContext(UserContext)
     const {chats} = useGetChats(user._id);
 
-    console.log(chats);
     return(
         <>
             <div className={styles.box}>
@@ -33,6 +33,8 @@ export default function MyChats(){
         <h2 className={styles.heading}>Your Chats</h2>
         {chats.map((chat) => {
           const lastMessage = chat.messages[chat.messages.length - 1]?.content || 'No messages yet';
+          const unconvertedTime = chat.messages[chat.messages.length - 1]?.timestamp;
+          const {hour, minutes} = timeConverter(unconvertedTime);
           return (
             <div key={chat._id} className={styles.conversation}>
               <img
@@ -41,7 +43,7 @@ export default function MyChats(){
                 alt="Chat Avatar"
               />
               <p>{lastMessage}</p>
-              <p className={styles.time}>{new Date(lastMessage.timestamp).getHours()}</p>
+              <p className={styles.time}>{hour}:{minutes}</p>
             </div>
           );
         })}

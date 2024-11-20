@@ -3,7 +3,6 @@ import { get } from "../api/requester";
 
 export function useGetChats(userId){
     const [chats, setChats] = useState([]);
-    console.log(userId);
 
     useEffect(() => {
         const getChats = async () => {
