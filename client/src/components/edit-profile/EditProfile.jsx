@@ -20,7 +20,7 @@ export default function EditProfile(){
 
       try{
         await post('edit', profile);
-        navigate('/profile')
+        navigate(`/profile/${id}`)
       } catch (err){
         console.log(err.message);
       }
@@ -59,7 +59,7 @@ export default function EditProfile(){
                 <span className="bar"></span>
                 <label>About You</label>
               </div>
-              <p className="mt"><button type="submit" className="btn btn-cta btn-lg">Create Profile</button></p>
+              <p className="mt"><button type="submit" className="btn btn-cta btn-lg">Edit Profile</button></p>
             </form>
       </div>
 </div>
