@@ -191,18 +191,29 @@
   .conversation {
     display: flex;
     gap: 30px;
+    justify-content: space-between;
     padding: 15px 0 8px 0;
     border-bottom: 2px solid grey;
 }
 
   .conversation p {
-    margin: 8px 0 17px 0;
+    margin: -19px 0 12px  0;
     color: #0ad5c1;
+    display: flex;
+    align-items: flex-end;
   }
 
-  p.time{
-    margin-left: 220px;
-  }
+  .inside-box {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-left: -63%;
+    margin-top: 10px;
+}
+
+div.inside-box p.last-msg{
+  color: rgb(173, 173, 173);
+}
   
   /* Small screens */
   @media all and (max-width: 767px) {
