@@ -171,7 +171,7 @@
   .left{
     margin-top: 40px;
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     background-color: rgba(255, 255, 255, 0.2);
     padding: 20px;
     border-radius: 20px;
@@ -183,6 +183,7 @@
     text-align: left;
     width: fit-content;
     color: #0ad5c1;
+    order: 1;
     font-weight: 300;
     border-bottom: 1px solid #0ad5c1;
     margin-bottom: 40px;
