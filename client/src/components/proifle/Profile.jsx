@@ -13,6 +13,10 @@ export default function Profile() {
     navigate(`/chat/${ownerId}`)
   }
 
+  const onEdit = () => {
+    navigate(`/edit/${user._id}`)
+  }
+
     return (
       <div className="container">
         <div className="profile">
@@ -43,11 +47,10 @@ export default function Profile() {
                   </p>
                 </div>
               </div>
-            {/* <button className="edit"><Link to={`/edit/${user._id}`}>Edit</Link></button> */}
             </div>
             <div className="card-buttons">
               {user._id == ownerId ?   
-              <button data-section="#about" className="is-active">
+              <button data-section="#about" className="is-active" onClick={onEdit}>
                   Edit
                 </button> :
                  <button data-section="#about" className="is-active" onClick={onChat}>
