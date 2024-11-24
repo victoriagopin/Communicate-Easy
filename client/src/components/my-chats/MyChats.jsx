@@ -4,11 +4,26 @@ import { UserContext } from '../../contexts/UserContext';
 import { useGetChats } from '../../hooks/useGetChats';
 import { timeConverter } from '../../helpers/convertTime';
 import { fetchProfile } from '../../helpers/fetchProfile';
+import { useForm } from '../../hooks/useForm';
 
 export default function MyChats(){
     const {user} = useContext(UserContext)
     const {chats} = useGetChats(user._id);
+    const initialChat = chats[chats.length - 1];
+    const [lastChat, setLastChat] = useState(initialChat);
     const [profiles, setProfiles] = useState([]);
+    const initialValues = {
+        content : '',
+        sender : user?._id,
+        participants : [user?._id, null]
+   }
+    const {values, changeValues} = useForm(initialValues);
+
+    useEffect(() => {
+        if (chats.length > 0) {
+            setLastChat(chats[chats.length - 1]);
+        }
+    }, [chats]);
 
     useEffect(() => {
         const fetchAllProfiles = async () => {
@@ -26,14 +41,34 @@ export default function MyChats(){
         if (chats.length) {
             fetchAllProfiles();
         }
-    }, [chats]);
+    }, [chats,lastChat]);
+
+    const showClickedChat = (chatId) => {
+        let result = chats.find((chat) => chat._id == chatId);
+        setLastChat(result);
+    }
+
+    // const onSend = async(e) => {
+    //     e.preventDefault();
+    //    console.log(lastChat);
+    // }
 
     return(
         <>
             <div className={styles.box}>
+            {lastChat ? (
                 <ul className={styles["chat-thread"]}>
-                        <li className={styles.sender}>Hi</li> 
+                    {lastChat.messages.map((message)=> 
+                    message.sender == user._id ?
+                        (<li className={styles.sender} key={message._id}>{message.content}</li> )
+                        :
+                        (<li className={styles.reciever} key={message._id}>{message.content}</li> )
+                    )}
                 </ul>
+            )
+                : <p>No messages yet</p>
+        }
+                
           
             <form className={styles["chat-window"]}>
 	            <input 
@@ -42,8 +77,8 @@ export default function MyChats(){
                     type="text" 
                     autoComplete="off" 
                     autoFocus 
-                    // value={values.content}
-                    // onChange={changeValues}
+                    value={values.content}
+                    onChange={changeValues}
                     placeholder='Message...'/>
                     <button className={styles.send}>Send</button>
             </form>
@@ -56,7 +91,7 @@ export default function MyChats(){
           const unconvertedTime = chat.messages[chat.messages.length - 1]?.timestamp;
           const {hour, minutes} =timeConverter(unconvertedTime);
           return (
-            <div key={chat._id} className={styles.conversation}>
+            <div key={chat._id} className={styles.conversation} onClick={() => showClickedChat(chat._id)}>
               <img
                 className={styles['my-chats-imgs']}
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4n4D5jth4fm4GE7ut7lWW-04lnDO2OkD-sg&s"
