@@ -5,6 +5,7 @@ import { useGetChats } from '../../hooks/useGetChats';
 import { timeConverter } from '../../helpers/convertTime';
 import { fetchProfile } from '../../helpers/fetchProfile';
 import { useForm } from '../../hooks/useForm';
+import { post } from '../../api/requester';
 
 export default function MyChats(){
     const {user} = useContext(UserContext)
@@ -48,10 +49,14 @@ export default function MyChats(){
         setLastChat(result);
     }
 
-    // const onSend = async(e) => {
-    //     e.preventDefault();
-    //    console.log(lastChat);
-    // }
+    const onSend = async(e) => {
+        e.preventDefault();
+        const recieverId = lastChat.participants.find((id) => id != user._id);
+        changeValues({ target: { name: 'participants', value: [user._id, recieverId] } });
+        const sent = await post(`chat`, values);
+        setLastChat(sent);
+        changeValues({ target: { name: 'content', value: '' } });
+    }
 
     return(
         <>
@@ -80,7 +85,7 @@ export default function MyChats(){
                     value={values.content}
                     onChange={changeValues}
                     placeholder='Message...'/>
-                    <button className={styles.send}>Send</button>
+                    <button className={styles.send} onClick={onSend}>Send</button>
             </form>
             </div>
 
