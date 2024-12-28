@@ -1,16 +1,27 @@
 import { useContext } from 'react';
 import {Link} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 import { UserContext } from '../../contexts/UserContext';
 
 export default function Header(){
-	const {user, hasProfile} = useContext(UserContext);
+	const {user, hasProfile, setUser, setHasProfile, setProfile} = useContext(UserContext);
+	const navigate = useNavigate();
+
+	const logOut = () => {
+		setUser(null);
+		setHasProfile(false);
+		setProfile({});
+		localStorage.clear();
+		navigate('/');
+	}
+
     return (
         
     <div id="headerwrap">
 		<Link to="/" className="header main">CommunicateEasy</Link>
 		{user ? (
 			<>
-			    <Link className="header">Log Out</Link>
+			    <Link className="header" onClick={logOut}>Log Out</Link>
 				{hasProfile ? 
 					<>
 					<Link to={`/profile/${user._id}`} className="header">Profile</Link>

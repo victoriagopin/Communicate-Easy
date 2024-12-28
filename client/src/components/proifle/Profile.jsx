@@ -49,7 +49,7 @@ export default function Profile() {
               </div>
             </div>
             <div className="card-buttons">
-              {user._id == ownerId ?   
+              {user?._id == ownerId ?   
               <button data-section="#about" className="is-active" onClick={onEdit}>
                   Edit
                 </button> :

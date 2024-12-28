@@ -9,7 +9,7 @@ import { post } from '../../api/requester';
 
 export default function MyChats(){
     const {user, profile} = useContext(UserContext)
-    const {chats} = useGetChats(user._id);
+    const {chats} = useGetChats(user?._id);
     const initialChat = chats[chats.length - 1];
     const [lastChat, setLastChat] = useState(initialChat);
     const [profiles, setProfiles] = useState([]);
@@ -32,7 +32,7 @@ export default function MyChats(){
             for (const chat of chats) {
                 // const sender = chat.messages[chat.messages.length - 1]?.sender;
                 let sender = chat.participants[1];
-                
+
                 if(sender == profile.fullName){
                     sender = chat.participants[0];
                 }
@@ -70,7 +70,7 @@ export default function MyChats(){
             {lastChat ? (
                 <ul className={styles["chat-thread"]}>
                     {lastChat.messages.map((message)=> 
-                    message.sender == user._id ?
+                    message.sender == user?._id ?
                         (<li className={styles.sender} key={message._id}>{message.content}</li> )
                         :
                         (<li className={styles.reciever} key={message._id}>{message.content}</li> )
