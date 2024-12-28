@@ -8,7 +8,7 @@ import { useForm } from '../../hooks/useForm';
 import { post } from '../../api/requester';
 
 export default function MyChats(){
-    const {user} = useContext(UserContext)
+    const {user, profile} = useContext(UserContext)
     const {chats} = useGetChats(user._id);
     const initialChat = chats[chats.length - 1];
     const [lastChat, setLastChat] = useState(initialChat);
@@ -30,7 +30,13 @@ export default function MyChats(){
         const fetchAllProfiles = async () => {
             const profilesMap = [];
             for (const chat of chats) {
-                const sender = chat.messages[chat.messages.length - 1]?.sender;
+                // const sender = chat.messages[chat.messages.length - 1]?.sender;
+                let sender = chat.participants[1];
+                
+                if(sender == profile.fullName){
+                    sender = chat.participants[0];
+                }
+
                 if (sender) {
                     const { name } = await fetchProfile(sender);
                     profilesMap.push(name);
