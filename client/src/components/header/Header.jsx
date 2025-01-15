@@ -12,7 +12,9 @@ export default function Header(){
 		setHasProfile(false);
 		setProfile({});
 		localStorage.clear();
-		navigate('/');
+		setTimeout(() => {
+			navigate('/');
+		}, 0);
 	}
 
     return (
