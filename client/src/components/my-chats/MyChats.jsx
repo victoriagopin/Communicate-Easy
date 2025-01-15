@@ -57,10 +57,15 @@ export default function MyChats(){
 
     const onSend = async(e) => {
         e.preventDefault();
-        const recieverId = lastChat.participants.find((id) => id != user._id);
-        changeValues({ target: { name: 'participants', value: [user._id, recieverId] } });
-        const sent = await post(`chat`, values);
+        const recieverId = lastChat?.participants.find((id) => id != user?._id);
+        
+        const updatedParticipants = [user._id, recieverId];
+
+        changeValues({ target: { name: 'participants', value: updatedParticipants}});
+
+        const sent = await post(`chat`, {...values, participants: updatedParticipants});
         setLastChat(sent);
+
         changeValues({ target: { name: 'content', value: '' } });
     }
 
