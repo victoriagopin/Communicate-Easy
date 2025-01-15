@@ -26,19 +26,25 @@ export default function MyChats(){
         }
     }, [chats]);
 
+    console.log(lastChat);
+    console.log(chats);
+
     useEffect(() => {
         const fetchAllProfiles = async () => {
             const profilesMap = [];
             for (const chat of chats) {
-                // const sender = chat.messages[chat.messages.length - 1]?.sender;
+                //тук връща ID 
                 let sender = chat.participants[1];
 
-                if(sender == profile.fullName){
+                if(sender == profile.owner){
+                    console.log('vlizam');
                     sender = chat.participants[0];
+                    console.log(sender);
                 }
 
                 if (sender) {
                     const { name } = await fetchProfile(sender);
+                    console.log(name);
                     profilesMap.push(name);
                 }
             }
