@@ -1,12 +1,12 @@
-.safari5 *{
+/* .safari5 *{
 -webkit-transform: none !important;
 -webkit-transition: none !important;
-}
+} */
 
 /*-----------------------------------------------------------------------------------*/
 /*	Fade
 /*-----------------------------------------------------------------------------------*/
-.b-link-fade{
+/* .b-link-fade{
 position: relative;
 display: inline-block;
 vertical-align: top;
@@ -864,4 +864,4 @@ transform:rotate(-180deg);
 -ms-transform:rotate(-180deg);
 -o-transform:rotate(-180deg);
 -webkit-transform:rotate(-180deg);
-}
+} */

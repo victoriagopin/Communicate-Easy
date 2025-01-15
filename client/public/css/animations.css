@@ -267,7 +267,7 @@ slideExpandUp
 */
 
 
-.slideExpandUp{
+/* .slideExpandUp{
 	animation-name: slideExpandUp;
 	-webkit-animation-name: slideExpandUp;	
 
@@ -338,7 +338,7 @@ slideExpandUp
 	100%{
 		-webkit-transform: translateY(0%) scaleX(1);		
 	}
-}
+} */
 
 /*
 ==============================================
@@ -347,7 +347,7 @@ expandUp
 */
 
 
-.expandUp{
+/* .expandUp{
 	animation-name: expandUp;
 	-webkit-animation-name: expandUp;	
 
@@ -388,7 +388,7 @@ expandUp
 	100% {
 		-webkit-transform: translateY(0%) scale(1) scaleY(1);
 	}	
-}
+} */
 
 /*
 ==============================================
@@ -396,7 +396,7 @@ fadeIn
 ==============================================
 */
 
-.fadeIn{
+/* .fadeIn{
 	animation-name: fadeIn;
 	-webkit-animation-name: fadeIn;	
 
@@ -443,7 +443,7 @@ fadeIn
 		-webkit-transform: scale(1);
 		opacity: 1;	
 	}		
-}
+} */
 
 /*
 ==============================================
@@ -452,7 +452,7 @@ expandOpen
 */
 
 
-.expandOpen{
+/* .expandOpen{
 	animation-name: expandOpen;
 	-webkit-animation-name: expandOpen;	
 
@@ -499,7 +499,7 @@ expandOpen
 	100% {
 		-webkit-transform: scale(1);
 	}					
-}
+} */
 
 /*
 ==============================================
@@ -508,7 +508,7 @@ bigEntrance
 */
 
 
-.bigEntrance{
+/* .bigEntrance{
 	animation-name: bigEntrance;
 	-webkit-animation-name: bigEntrance;	
 
@@ -581,7 +581,7 @@ bigEntrance
 		-webkit-transform: scale(1) rotate(0deg) translateX(0%) translateY(0%);
 		opacity: 1;
 	}				
-}
+} */
 
 /*
 ==============================================
@@ -589,7 +589,7 @@ hatch
 ==============================================
 */
 
-.hatch{
+/* .hatch{
 	animation-name: hatch;
 	-webkit-animation-name: hatch;	
 
@@ -652,7 +652,7 @@ hatch
 	100% {
 		-webkit-transform: rotate(0deg);
 	}		
-}
+} */
 
 
 /*
@@ -662,7 +662,7 @@ bounce
 */
 
 
-.bounce{
+/* .bounce{
 	animation-name: bounce;
 	-webkit-animation-name: bounce;	
 
@@ -717,7 +717,7 @@ bounce
 	100%{
 		-webkit-transform: translateY(0%) scaleY(1) scaleX(1);
 	}		
-}
+} */
 
 
 /*
@@ -726,7 +726,7 @@ pulse
 ==============================================
 */
 
-.pulse{
+/* .pulse{
 	animation-name: pulse;
 	-webkit-animation-name: pulse;	
 
@@ -765,7 +765,7 @@ pulse
 		-webkit-transform: scale(0.95);
 		opacity: 0.7;	
 	}			
-}
+} */
 
 /*
 ==============================================
@@ -773,7 +773,7 @@ floating
 ==============================================
 */
 
-.floating{
+/* .floating{
 	animation-name: floating;
 	-webkit-animation-name: floating;
 
@@ -806,7 +806,7 @@ floating
 	100% {
 		-webkit-transform: translateY(0%);
 	}			
-}
+} */
 
 /*
 ==============================================
@@ -855,7 +855,7 @@ pullUp
 ==============================================
 */
 
-.pullUp{
+/* .pullUp{
 	animation-name: pullUp;
 	-webkit-animation-name: pullUp;	
 
@@ -916,7 +916,7 @@ pullUp
 	100% {
 		-webkit-transform: scaleY(1);
 	}		
-}
+} */
 
 /*
 ==============================================
@@ -924,7 +924,7 @@ pullDown
 ==============================================
 */
 
-.pullDown{
+/* .pullDown{
 	animation-name: pullDown;
 	-webkit-animation-name: pullDown;	
 
@@ -985,7 +985,7 @@ pullDown
 	100% {
 		-webkit-transform: scaleY(1);
 	}		
-}
+} */
 
 /*
 ==============================================
@@ -993,7 +993,7 @@ stretchLeft
 ==============================================
 */
 
-.stretchLeft{
+/* .stretchLeft{
 	animation-name: stretchLeft;
 	-webkit-animation-name: stretchLeft;	
 
@@ -1054,7 +1054,7 @@ stretchLeft
 	100% {
 		-webkit-transform: scaleX(1);
 	}		
-}
+} */
 
 /*
 ==============================================
@@ -1062,7 +1062,7 @@ stretchRight
 ==============================================
 */
 
-.stretchRight{
+/* .stretchRight{
 	animation-name: stretchRight;
 	-webkit-animation-name: stretchRight;	
 
@@ -1123,4 +1123,4 @@ stretchRight
 	100% {
 		-webkit-transform: scaleX(1);
 	}		
-}
+} */
