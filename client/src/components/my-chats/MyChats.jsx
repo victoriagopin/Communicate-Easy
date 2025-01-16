@@ -111,7 +111,7 @@ export default function MyChats(){
         {chats.map((chat, i) => {
           const lastMessage = chat.messages[chat.messages.length - 1]?.content || 'No messages yet';
           const unconvertedTime = chat.messages[chat.messages.length - 1]?.timestamp;
-          const {hour, minutes} =timeConverter(unconvertedTime);
+          const {hour, minutes, day} =timeConverter(unconvertedTime);
           return (
             <div key={chat._id} className={styles.conversation} onClick={() => showClickedChat(chat._id)}>
               <img
@@ -124,7 +124,7 @@ export default function MyChats(){
               <p className={styles['last-msg']}>{lastMessage}</p>
               </div>
              
-              <p className={styles.time}>{hour}:{minutes}</p>
+              <p className={styles.time}>{day} {hour}:{minutes}</p>
             </div>
           );
         })}
