@@ -26,9 +26,6 @@ export default function MyChats(){
         }
     }, [chats]);
 
-    console.log(lastChat);
-    console.log(chats);
-
     useEffect(() => {
         const fetchAllProfiles = async () => {
             const profilesMap = [];
@@ -37,14 +34,11 @@ export default function MyChats(){
                 let sender = chat.participants[1];
 
                 if(sender == profile.owner){
-                    console.log('vlizam');
                     sender = chat.participants[0];
-                    console.log(sender);
                 }
 
                 if (sender) {
                     const { name } = await fetchProfile(sender);
-                    console.log(name);
                     profilesMap.push(name);
                 }
             }
@@ -79,6 +73,10 @@ export default function MyChats(){
         <>
             <div className={styles.box}>
             {lastChat ? (
+                <>
+                 <div className={styles["chat-with"]}>
+                 <p className={styles["chat-with-p"]}>You are now chatting with: {profiles[0]}</p>
+             </div>
                 <ul className={styles["chat-thread"]}>
                     {lastChat.messages.map((message)=> 
                     message.sender == user?._id ?
@@ -87,6 +85,7 @@ export default function MyChats(){
                         (<li className={styles.reciever} key={message._id}>{message.content}</li> )
                     )}
                 </ul>
+                </>
             )
                 : <p>No messages yet</p>
         }

@@ -215,6 +215,39 @@
 div.inside-box p.last-msg{
   color: rgb(173, 173, 173);
 }
+
+div.chat-with{
+  margin-top: 20px;
+}
+
+p.chat-with-p {
+  font-size: large;
+  color: #53cdaf;
+  text-shadow: 
+    0 0 5px #77e7fa, 
+    0 0 10px #00ddff, 
+    0 0 15px #50c7f3, 
+    0 0 20px rgba(0, 255, 225, 0.6), 
+    0 0 25px rgba(0, 204, 255, 0.4);
+  animation: text-glow 1.5s infinite alternate;
+  margin-left: -290px;
+}
+
+@keyframes text-glow {
+  0% {
+    text-shadow: 
+      0 0 5px #77e7fa, 
+      0 0 10px #00ddff, 
+      0 0 15px #50c7f3;
+  }
+  100% {
+    text-shadow: 
+      0 0 10px rgba(0, 255, 225, 0.6), 
+      0 0 20px rgba(0, 204, 255, 0.4), 
+      0 0 25px rgba(0, 102, 255, 0.8);
+  }
+}
+
   
   /* Small screens */
   @media all and (max-width: 767px) {
