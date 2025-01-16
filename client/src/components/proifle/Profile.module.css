@@ -1,0 +1,10 @@
+button.edit{
+    width: 100px;
+    padding: 10px 5px;
+    margin-bottom: 20px;
+}
+
+p.delete{
+  color: rgb(246, 71, 153);
+  opacity: 0.5;
+}
