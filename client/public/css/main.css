@@ -1036,7 +1036,7 @@ p.capitalize:first-letter {
   }
   
   .card-buttons {
-	display: flex;
+	/* display: flex; */
 	/* background-color: #fff; */
 	margin-top: auto;
 	position: sticky;

@@ -1,3 +1,4 @@
+import styles from './Profile.module.css';
 import { useNavigate, useParams} from "react-router-dom";
 import { useContext } from "react";
 import { UserContext } from "../../contexts/UserContext";
@@ -49,10 +50,13 @@ export default function Profile() {
               </div>
             </div>
             <div className="card-buttons">
-              {user?._id == ownerId ?   
-              <button data-section="#about" className="is-active" onClick={onEdit}>
+              {user?._id == ownerId ?  
+              <>
+              <button data-section="#about" className={`${styles.edit} is-active`} onClick={onEdit}>
                   Edit
-                </button> :
+                </button> 
+                <p className={styles.delete}>Delete profile</p>
+                </> :
                  <button data-section="#about" className="is-active" onClick={onChat}>
                  Click to send a message!
                </button>
