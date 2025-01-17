@@ -34,9 +34,16 @@ async function updateProfile(profileId, profileData){
     return profile;
 }
 
+async function deleteProfile(profileId){
+    await Profile.findByIdAndDelete(profileId);
+
+    return { success: true, message: "Profile deleted successfully" };
+}
+
 
 module.exports = {
     getById,
     createProfile,
-    updateProfile
+    updateProfile,
+    deleteProfile
 }

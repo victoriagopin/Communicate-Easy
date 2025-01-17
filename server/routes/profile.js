@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const { createProfile, getById, updateProfile} = require('../services/data');
+const { createProfile, getById, updateProfile, deleteProfile} = require('../services/data');
 const {  Profile } = require('../models/Profile');
 
 
@@ -42,6 +42,19 @@ profileRouter.get('/search', async (req, res) => {
     const profile = await Profile.findOne({fullName : fullName});
 
     res.json(profile);
+})
+
+profileRouter.post('/delete-profile', async(req, res) => {
+     const profileId = req.body._id;
+    
+     try{
+        const result = await deleteProfile(profileId);
+        res.json(result);
+     } catch(err){
+        console.log(err.message);
+
+        return res.status(404);
+     }
 })
 
 module.exports = {
