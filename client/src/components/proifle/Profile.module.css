@@ -1,10 +1,67 @@
 button.edit{
-    width: 100px;
-    padding: 10px 5px;
-    margin-bottom: 20px;
+    font-size: large;
+    color: #0ad5c1;
+    text-shadow: 
+      0 0 5px #77e7fa, 
+      0 0 10px #00ddff, 
+      0 0 15px #50c7f3, 
+      0 0 20px rgba(0, 255, 225, 0.6), 
+      0 0 25px rgba(0, 204, 255, 0.4);
+    animation: text-glow-edit 1.5s infinite alternate;
 }
 
-p.delete{
-  color: rgb(246, 71, 153);
-  opacity: 0.5;
+button.edit:hover{
+    background: none;
+    font-size: larger;
+}
+
+button.delete {
+    font-size: small;
+    display: block;
+    margin: auto;
+    color: #ef49ce;
+    text-shadow: 
+      0 0 10px #ff66e6, 
+      0 0 20px #ff33cc, 
+      0 0 30px #ff99ff, 
+      0 0 40px rgba(255, 0, 208, 0.8), 
+      0 0 50px rgba(255, 0, 149, 0.6);
+    animation: text-glow 1.5s infinite alternate;
+}
+
+button.delete:hover{
+    cursor: pointer;
+    font-size: medium;
+    background: none;
+    border-bottom: 3px solid #c974bf;
+}
+  
+@keyframes text-glow {
+    0% {
+      text-shadow: 
+        0 0 10px #ff66e6, 
+        0 0 20px #ff33cc, 
+        0 0 30px rgba(255, 102, 178, 0.8);
+    }
+    100% {
+      text-shadow: 
+        0 0 20px rgba(255, 0, 255, 0.8), 
+        0 0 30px rgba(245, 145, 221, 0.7), 
+        0 0 40px rgba(255, 105, 180, 1);
+    }
+}
+
+@keyframes text-glow-edit {
+  0% {
+    text-shadow: 
+      0 0 5px #77e7fa, 
+      0 0 10px #00ddff, 
+      0 0 15px #50c7f3;
+  }
+  100% {
+    text-shadow: 
+      0 0 10px rgba(0, 255, 225, 0.6), 
+      0 0 20px rgba(0, 204, 255, 0.4), 
+      0 0 25px rgba(0, 102, 255, 0.8);
+  }
 }

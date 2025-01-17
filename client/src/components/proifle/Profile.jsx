@@ -52,10 +52,10 @@ export default function Profile() {
             <div className="card-buttons">
               {user?._id == ownerId ?  
               <>
-              <button data-section="#about" className={`${styles.edit} is-active`} onClick={onEdit}>
+              <button data-section="#about" className={`${styles.edit}`} onClick={onEdit}>
                   Edit
                 </button> 
-                <p className={styles.delete}>Delete profile</p>
+                <button className={styles.delete}>Delete profile</button>
                 </> :
                  <button data-section="#about" className="is-active" onClick={onChat}>
                  Click to send a message!
