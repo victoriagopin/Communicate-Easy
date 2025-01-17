@@ -9,7 +9,7 @@ export default function SuccessfullyCreated(){
 
         <div className="home">
             <h1 className="welcome">{`Dear ${user.email}, you have successfully created your profile!`}</h1>
-            <p className="para">See your <Link to='/profile'>Profile!</Link></p>
+            <p className="para">See your <Link to={`/profile/${user._id}`}>Profile!</Link></p>
         </div>   
 
     </div>
