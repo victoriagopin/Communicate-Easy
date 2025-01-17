@@ -3,6 +3,7 @@ import { useNavigate, useParams} from "react-router-dom";
 import { useContext } from "react";
 import { UserContext } from "../../contexts/UserContext";
 import { useGetProfile } from "../../hooks/useGetProfile";
+import { post } from '../../api/requester';
 
 export default function Profile() {
   const {ownerId} = useParams();
@@ -16,6 +17,19 @@ export default function Profile() {
 
   const onEdit = () => {
     navigate(`/edit/${user._id}`)
+  }
+
+  const onDelete = async () => {
+    try{
+      const res = await post('delete-profile', profile);
+
+      if(res.status === 200){
+        console.log('vlizam');
+        navigate(`/`);
+      }
+    } catch (err){
+      console.log(err.message);
+    }
   }
 
     return (
@@ -55,7 +69,7 @@ export default function Profile() {
               <button data-section="#about" className={`${styles.edit}`} onClick={onEdit}>
                   Edit
                 </button> 
-                <button className={styles.delete}>Delete profile</button>
+                <button className={styles.delete} onClick={onDelete}>Delete profile</button>
                 </> :
                  <button data-section="#about" className="is-active" onClick={onChat}>
                  Click to send a message!
