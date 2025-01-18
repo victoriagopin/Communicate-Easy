@@ -2,18 +2,12 @@ import styles from './Profile.module.css';
 import { useNavigate, useParams} from "react-router-dom";
 import { useContext } from "react";
 import { UserContext } from "../../contexts/UserContext";
-import { useGetProfile } from "../../hooks/useGetProfile";
 import { post } from '../../api/requester';
 
 export default function Profile() {
   const {ownerId} = useParams();
-  const {user} = useContext(UserContext);
-  const {profile} = useGetProfile(ownerId);
+  const {user, profile, setProfile, setHasProfile} = useContext(UserContext);
   const navigate = useNavigate();
-
-  const onChat = () => {
-    navigate(`/chat/${ownerId}`)
-  }
 
   const onEdit = () => {
     navigate(`/edit/${user._id}`)
@@ -21,12 +15,10 @@ export default function Profile() {
 
   const onDelete = async () => {
     try{
-      const res = await post('delete-profile', profile);
-
-      if(res.status === 200){
-        console.log('vlizam');
-        navigate(`/`);
-      }
+      setProfile({});
+      setHasProfile(false);
+      navigate('/');
+      await post('delete-profile', profile);
     } catch (err){
       console.log(err.message);
     }
@@ -71,7 +63,7 @@ export default function Profile() {
                 </button> 
                 <button className={styles.delete} onClick={onDelete}>Delete profile</button>
                 </> :
-                 <button data-section="#about" className="is-active" onClick={onChat}>
+                 <button data-section="#about" className="is-active">
                  Click to send a message!
                </button>
                 }
