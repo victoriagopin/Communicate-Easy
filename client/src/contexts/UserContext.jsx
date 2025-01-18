@@ -21,7 +21,7 @@ export const UserProvider = ({children}) => {
         }
 
         getProfile();
-    },[user]);
+    },[user, profile]);
 
     return(
         <UserContext.Provider value={{user, setUser, hasProfile,setHasProfile, profile, setProfile}}>
