@@ -1,0 +1,79 @@
+.card {
+    max-width: 600px;
+    margin: auto;
+    overflow-y: auto;
+    position: relative;
+    z-index: 1;
+    overflow-x: hidden;
+    background-color: rgba(255, 255, 255, 0.2);
+    display: flex;
+    transition: 0.3s;
+    flex-direction: row;
+    border-radius: 10px;
+    box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.2);
+    height: 310px;
+}
+
+.card-header {
+    position: relative;
+    display: flex;
+    height: 162px;
+    flex-shrink: 0;
+    transition: 0.3s;
+    margin-left: 75px;
+    margin-top: 70px;
+}
+/* 
+.card-cover {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    height: 160px;
+    top: 24%;
+    left: 0;
+    will-change: top;
+    background-size: cover;
+    background-position: center;
+    filter: blur(30px);
+    transform: scale(1.2);
+    transition: 0.5s;
+} */
+
+.card-main {
+    position: relative;
+    flex: 1;
+    display: flex;
+    padding-top: 10px;
+    flex-direction: column;
+    margin-top: 67px;
+    margin-left: 80px;
+}
+
+.click{
+    background: none;
+    border: none;
+    font-size: large;
+    color: #0ad5c1;
+    text-shadow: 
+      0 0 5px #77e7fa, 
+      0 0 10px #00ddff, 
+      0 0 15px #50c7f3, 
+      0 0 20px rgba(0, 255, 225, 0.6), 
+      0 0 25px rgba(0, 204, 255, 0.4);
+    animation: text-glow-edit 1.5s infinite alternate;
+}
+
+@keyframes text-glow-edit {
+    0% {
+      text-shadow: 
+        0 0 5px #77e7fa, 
+        0 0 10px #00ddff, 
+        0 0 15px #50c7f3;
+    }
+    100% {
+      text-shadow: 
+        0 0 10px rgba(0, 255, 225, 0.6), 
+        0 0 20px rgba(0, 204, 255, 0.4), 
+        0 0 25px rgba(0, 102, 255, 0.8);
+    }
+  }

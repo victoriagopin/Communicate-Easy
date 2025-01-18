@@ -13,6 +13,7 @@ import SearchUser from './components/search-user/SearchUser'
 import NotFoundUser from './components/not-found-user/NotFoundUser'
 import Chat from './components/chat/Chat'
 import MyChats from './components/my-chats/MyChats'
+import ProfileToChat from './components/profile-to-chat/ProfileToChat'
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
     <Route path='/register' element={ <Register />}/>
     <Route path='/my-chats' element={ <MyChats />}></Route>
     <Route path='/profile/:ownerId' element={<Profile />} />
+    <Route path='/profile-to-chat/:ownerId' element={<ProfileToChat />}/>
     <Route path='/edit/:id' element={<EditProfile />} />
     <Route path='/success' element={<SuccessfullyCreated />} />
     <Route path='/create-profile' element={<CreateProfile />} />
