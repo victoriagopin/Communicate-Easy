@@ -16,11 +16,11 @@ export default function Chat(){
     const initialValues = {
         content : '',
         sender : user?._id,
-        participants : [user._id, id]
+        participants : [user?._id, id]
    }
 
     const {values, changeValues} = useForm(initialValues);
-    const {chat, setChat} = useGetChat(user._id, id);
+    const {chat, setChat} = useGetChat(user?._id, id);
 
     const onSend = async(e) => {
         e.preventDefault();
@@ -38,7 +38,7 @@ export default function Chat(){
                     </div>
                     <ul className={styles["chat-thread"]}>
                     {chat.messages.map((message)=> 
-                    message.sender == user._id ?
+                    message.sender == user?._id ?
                         (<li className={styles.sender} key={message._id}>{message.content}</li> )
                         :
                         (<li className={styles.reciever} key={message._id}>{message.content}</li> )
