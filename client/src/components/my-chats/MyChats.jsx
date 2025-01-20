@@ -13,6 +13,7 @@ export default function MyChats(){
     const initialChat = chats[chats.length - 1];
     const [lastChat, setLastChat] = useState(initialChat);
     const [profiles, setProfiles] = useState([]);
+    const [username, setUsername] = useState(null);
     const initialValues = {
         content : '',
         sender : user?._id,
@@ -48,9 +49,11 @@ export default function MyChats(){
         if (chats.length) {
             fetchAllProfiles();
         }
-    }, [chats,lastChat]);
+    }, [chats]);
 
-    const showClickedChat = (chatId) => {
+    const showClickedChat = (chatId, event) => {
+        const profileName = event.currentTarget.querySelector("p").textContent;
+        setUsername(profileName);
         let result = chats.find((chat) => chat._id == chatId);
         setLastChat(result);
     }
@@ -75,7 +78,7 @@ export default function MyChats(){
             {lastChat ? (
                 <>
                  <div className={styles["chat-with"]}>
-                 <p className={styles["chat-with-p"]}>You are now chatting with: {profiles[0]}</p>
+                 <p className={styles["chat-with-p"]}>You are now chatting with: {username ? username : profiles[1]}</p>
              </div>
                 <ul className={styles["chat-thread"]}>
                     {lastChat.messages.map((message)=> 
@@ -112,7 +115,7 @@ export default function MyChats(){
           const unconvertedTime = chat.messages[chat.messages.length - 1]?.timestamp;
           const {hour, minutes, day} =timeConverter(unconvertedTime);
           return (
-            <div key={chat._id} className={styles.conversation} onClick={() => showClickedChat(chat._id)}>
+            <div key={chat._id} className={styles.conversation} onClick={(event) => showClickedChat(chat._id, event)}>
               <img
                 className={styles['my-chats-imgs']}
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4n4D5jth4fm4GE7ut7lWW-04lnDO2OkD-sg&s"
