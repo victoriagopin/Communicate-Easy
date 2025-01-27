@@ -38,7 +38,7 @@ export default function Profile() {
               ></div>
               <img
                 className="card-avatar"
-                src="https://images.unsplash.com/photo-1549068106-b024baf5062d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4n4D5jth4fm4GE7ut7lWW-04lnDO2OkD-sg&s"
                 alt="avatar"
               />
               <h1 className="card-fullname">{profile.fullName || ''}</h1>
