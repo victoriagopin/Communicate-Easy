@@ -24,6 +24,7 @@ export default function Header(){
 		{user ? (
 			<>
 			    <Link className="header" onClick={logOut}>Log Out</Link>
+				<Link to="/communicate-now" className="header">Communicate Now</Link>
 				{hasProfile ? 
 					<>
 					<Link to={`/profile/${user._id}`} className="header">Profile</Link>
@@ -39,7 +40,7 @@ export default function Header(){
 				<Link to="login" className="header">Log In</Link>
 			</>)
 		}
-		<Link to="/communicate-now" className="header">Communicate Now</Link>
+		
 	</div>
     )
 }

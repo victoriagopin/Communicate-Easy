@@ -207,6 +207,9 @@ p.capitalize:first-letter {
   border-color: #74c9be;
   font-family: 'Ruda', sans-serif;
   font-size: 15px;
+  border-radius: 9px;
+    border: 2px solid;
+    padding: 5px 23px;
   letter-spacing: 2px;
   margin-bottom: 25px;
 }
