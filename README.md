@@ -1,6 +1,6 @@
 # Communicate-Easy
 
-Communicate Easy is an application, developed using ReactJS, that provides users with an opportunity to interact through messaging. The app includes features such as profile creation, allowing users to personalize their experience. With the Communicate Now button, users can connect with others and initiate conversations seamlessly. Additionally, the My Chats feature offers a convenient way to view and manage all ongoing conversations.
+Communicate Easy is an application, developed using ReactJS, that provides users with an opportunity to interact through messaging. For the database, I have used MongoDB to store the data. The app includes features such as profile creation, allowing users to personalize their experience. With the Communicate Now button, users can connect with others and initiate conversations seamlessly. Additionally, the My Chats feature offers a convenient way to view and manage all ongoing conversations.
 
 ## Installation
 
