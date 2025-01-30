@@ -78,7 +78,7 @@ export default function MyChats(){
             {lastChat ? (
                 <>
                  <div className={styles["chat-with"]}>
-                 <p className={styles["chat-with-p"]}>You are now chatting with: {username ? username : profiles[1]}</p>
+                 <p className={styles["chat-with-p"]}>You are now chatting with: {username ? username : profiles[profiles.length - 1]}</p>
              </div>
                 <ul className={styles["chat-thread"]}>
                     {lastChat.messages.map((message)=> 
